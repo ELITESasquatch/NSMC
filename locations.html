@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Locations - SportConnect</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header & Navigation -->
+    <header class="bg-blue-800 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="logo text-2xl font-bold tracking-tight">
+                <a href="index.html" class="hover:text-blue-200 transition duration-150">SportConnect</a>
+            </div>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="programs.html" class="font-semibold hover:text-blue-200 transition duration-150">Programs</a></li>
+                    <li><a href="locations.html" class="font-semibold text-orange-300 border-b-2 border-orange-300 pb-1">Locations</a></li>
+                    <li><a href="tutors.html" class="font-semibold hover:text-blue-200 transition duration-150">For Tutors</a></li>
+                    <li><a href="login.html" class="font-semibold px-4 py-2 bg-orange-500 rounded-full hover:bg-orange-600 transition duration-150">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-12">
+
+        <!-- Banner / Intro Section -->
+        <section class="banner bg-orange-100 p-8 md:p-12 rounded-xl shadow-md text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-orange-700 mb-4">
+                Find Nearby Coaching Spots
+            </h1>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                Enter your location to discover local parks, fields, and facilities where SportConnect tutors are available for sessions.
+            </p>
+        </section>
+
+        <!-- Location Search Form -->
+        <section class="search-form max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                Enter Your City or Zip Code
+            </h2>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <input 
+                    type="text" 
+                    id="locationInput"
+                    placeholder="e.g., 90210 or Los Angeles"
+                    class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-lg"
+                    aria-label="Enter city or zip code"
+                >
+                <button 
+                    id="searchButton"
+                    onclick="handleSearch()"
+                    class="p-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-150 sm:w-auto w-full"
+                >
+                    Search Locations
+                </button>
+            </div>
+        </section>
+
+        <!-- Placeholder Results Section -->
+        <section class="results">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-gray-300 inline-block pb-1">
+                Nearby Parks and Facilities
+            </h2>
+
+            <!-- Dynamic Content Area -->
+            <div id="resultsContainer" class="bg-white p-8 rounded-xl shadow-inner min-h-[200px] text-center flex items-center justify-center">
+                <p class="text-gray-500 text-lg">
+                    Enter a location above to see available coaching venues, like public parks, school fields, or private courts.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 SportConnect | Connecting Athletes & Tutors</p>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript to capture input -->
+    <script>
+        function handleSearch() {
+            const inputElement = document.getElementById('locationInput');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const location = inputElement.value.trim();
+
+            if (location) {
+                // In a real application, you would send this 'location' variable
+                // to a server-side API (like Google Maps or a park database) here.
+                
+                // For now, we'll just show the input and a dummy result.
+                resultsContainer.innerHTML = `
+                    <div class="w-full text-left">
+                        <p class="text-xl font-semibold mb-4 text-blue-800">Showing results for: ${location}</p>
+                        <!-- Example Park Listing -->
+                        <div class="mb-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                            <h3 class="font-bold text-lg">Central City Park</h3>
+                            <p class="text-sm text-gray-600">Best for: Basketball, Soccer, Running</p>
+                            <p class="text-sm text-gray-500 mt-1">123 Main St, ${location}</p>
+                        </div>
+                        <div class="mb-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
+                            <h3 class="font-bold text-lg">Community Sports Field</h3>
+                            <p class="text-sm text-gray-600">Best for: Football, Lacrosse</p>
+                            <p class="text-sm text-gray-500 mt-1">456 Oak Ave, ${location}</p>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-4">
+                            (Note: These are placeholder results. Real data integration is required for actual park locations.)
+                        </p>
+                    </div>
+                `;
+            } else {
+                resultsContainer.innerHTML = '<p class="text-red-500 text-lg">Please enter a city or zip code to search.</p>';
+            }
+        }
+    </script>
+
+</body>
+</html>
