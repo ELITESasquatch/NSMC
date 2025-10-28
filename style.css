@@ -119,3 +119,24 @@ footer {
             flex-grow: 1;
         }
     </style>
+/* "For Tutors" Styling */
+<style>
+        /* Custom font import for 'Inter' and application to body */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1;
+        }
+        /* Custom style for the high-impact banner area */
+        .tutor-hero {
+            background-size: cover;
+            background-position: center;
+            /* Placeholder for user's image, will be overridden by inline style */
+            background-image: url('https://placehold.co/1920x400/004d99/ffffff?text=Tutor+Banner+Image+Placeholder');
+        }
+    </style>
