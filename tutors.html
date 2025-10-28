@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Tutors - SportConnect</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Header & Navigation -->
+    <header class="bg-blue-800 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="logo text-2xl font-bold tracking-tight">
+                <a href="index.html" class="hover:text-blue-200 transition duration-150">SportConnect</a>
+            </div>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="programs.html" class="font-semibold hover:text-blue-200 transition duration-150">Programs</a></li>
+                    <li><a href="locations.html" class="font-semibold hover:text-blue-200 transition duration-150">Locations</a></li>
+                    <!-- Highlighted Link -->
+                    <li><a href="tutors.html" class="font-semibold text-orange-300 border-b-2 border-orange-300 pb-1">For Tutors</a></li>
+                    <li><a href="login.html" class="font-semibold px-4 py-2 bg-orange-500 rounded-full hover:bg-orange-600 transition duration-150">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="w-full">
+
+        <!-- Banner / Hero Section with Image Background -->
+        <section 
+            class="tutor-hero py-20 md:py-32 flex items-center justify-center text-center"
+            style="background-image: url('https://placehold.co/1920x400/004d99/ffffff?text=Replace+This+URL+for+Banner+Background');"
+        >
+            <!-- Overlay to make text readable on any background image -->
+            <div class="bg-black bg-opacity-40 p-6 rounded-xl max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight shadow-text">
+                    Share Your Passion. Be Rewarded for It.
+                </h1>
+                <p class="text-lg md:text-xl text-white font-medium shadow-text">
+                    Join **Nalanda** to connect with local athletes ready to learn and manage your classes with our easy-to-use platform.
+                </p>
+                <a href="#apply" class="mt-8 inline-block px-8 py-3 bg-orange-500 text-white text-lg font-bold rounded-full hover:bg-orange-600 transition duration-300 shadow-xl">
+                    Start Your Application
+                </a>
+            </div>
+        </section>
+
+        <!-- Section 1: Why Tutor with Nalanda? -->
+        <section class="bg-white py-16 px-4">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+                    Why Tutor with Nalanda?
+                </h2>
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                    <!-- Feature 1: Easy Setup -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg transition hover:shadow-2xl">
+                        <!-- Image Placeholder 1 -->
+                        <img 
+                            src="https://placehold.co/150x150/10B981/ffffff?text=Icon" 
+                            alt="Easy Setup Icon" 
+                            class="w-32 h-32 object-cover rounded-full mb-6 border-4 border-green-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/150x150/6B7280/ffffff?text=Missing'"
+                        >
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Easy Setup</h3>
+                        <p class="text-gray-600">The application and profile creation process is designed to be quick and intuitive, letting you get listed and ready to teach in minimal time.</p>
+                    </div>
+
+                    <!-- Feature 2: Seamless Bookings -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg transition hover:shadow-2xl">
+                        <!-- Image Placeholder 2 -->
+                        <img 
+                            src="https://placehold.co/150x150/3B82F6/ffffff?text=Icon" 
+                            alt="Bookings Icon" 
+                            class="w-32 h-32 object-cover rounded-full mb-6 border-4 border-blue-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/150x150/6B7280/ffffff?text=Missing'"
+                        >
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">Seamless Bookings</h3>
+                        <p class="text-gray-600">We handle all registrations, payments, and student connections, allowing you to focus purely on coaching without administrative hassle.</p>
+                    </div>
+
+                    <!-- Feature 3: You're in Control -->
+                    <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-lg transition hover:shadow-2xl">
+                        <!-- Image Placeholder 3 -->
+                        <img 
+                            src="https://placehold.co/150x150/F59E0B/ffffff?text=Icon" 
+                            alt="Control Icon" 
+                            class="w-32 h-32 object-cover rounded-full mb-6 border-4 border-yellow-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/150x150/6B7280/ffffff?text=Missing'"
+                        >
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-3">You're in Control</h3>
+                        <p class="text-gray-600">Enjoy the freedom to set your own rates, manage your availability, and choose your preferred teaching locations and class formats.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Getting Started is Simple (Process Steps) -->
+        <section id="apply" class="bg-gray-100 py-16 px-4">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+                    Getting Started is Simple
+                </h2>
+                <!-- Steps Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                    <!-- Step 1: Apply Online -->
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md">
+                        <!-- Image Placeholder 4 -->
+                        <img 
+                            src="https://placehold.co/180x100/DC2626/ffffff?text=Step+1+Icon" 
+                            alt="Application form icon" 
+                            class="w-full h-24 object-contain mb-4"
+                            onerror="this.onerror=null; this.src='https://placehold.co/180x100/6B7280/ffffff?text=Missing'"
+                        >
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">1. Apply Online</h3>
+                        <p class="text-gray-600">Fill out our simple application to tell us about your coaching experience, sports mastery, and teaching philosophy.</p>
+                    </div>
+
+                    <!-- Step 2: Get Verified -->
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md">
+                        <!-- Image Placeholder 5 -->
+                        <img 
+                            src="https://placehold.co/180x100/1D4ED8/ffffff?text=Step+2+Icon" 
+                            alt="Verification checkmark icon" 
+                            class="w-full h-24 object-contain mb-4"
+                            onerror="this.onerror=null; this.src='https://placehold.co/180x100/6B7280/ffffff?text=Missing'"
+                        >
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">2. Get Verified</h3>
+                        <p class="text-gray-600">Our team reviews all applications, conducts necessary background checks, and verifies credentials to ensure a safe, high-quality community.</p>
+                    </div>
+
+                    <!-- Step 3: Start Teaching -->
+                    <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md">
+                        <!-- Image Placeholder 6 -->
+                        <img 
+                            src="https://placehold.co/180x100/059669/ffffff?text=Step+3+Icon" 
+                            alt="Tutor profile icon" 
+                            class="w-full h-24 object-contain mb-4"
+                            onerror="this.onerror=null; this.src='https://placehold.co/180x100/6B7280/ffffff?text=Missing'"
+                        >
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">3. Start Teaching</h3>
+                        <p class="text-gray-600">Once approved, you can build your profile, set your first available sessions, and immediately begin connecting with local athletes!</p>
+                    </div>
+
+                </div>
+                <a href="#apply" class="mt-10 inline-block px-10 py-3 bg-blue-600 text-white text-lg font-bold rounded-full hover:bg-blue-700 transition duration-300 shadow-xl">
+                    Apply Today
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 SportConnect | Connecting Athletes & Tutors</p>
+        </div>
+    </footer>
+
+</body>
+</html>
