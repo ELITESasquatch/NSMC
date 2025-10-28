@@ -105,3 +105,17 @@ footer {
             flex-grow: 1;
         }
     </style>
+/* Locations Styling */
+   <style>
+        /* Custom font import for 'Inter' and application to body */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1;
+        }
+    </style>
