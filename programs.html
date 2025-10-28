@@ -6,7 +6,19 @@
     <title>Available Programs - SportConnect</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom font import for 'Inter' and application to body */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex-grow: 1;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
 
@@ -50,30 +62,54 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
                 <!-- Basketball Card -->
-                <div class="sport-card bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-6xl mb-4" role="img" aria-label="Basketball Icon">🏀</div>
+                <div class="sport-card bg-white p-4 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    
+                    <!-- IMAGE INSERTION POINT: Replace the src with your actual image URL -->
+                    <img 
+                        src="https://static.vecteezy.com/system/resources/previews/022/336/935/non_2x/basketball-background-illustration-ai-generative-free-photo.jpg" 
+                        alt="A person shooting a basketball" 
+                        class="w-full h-40 object-cover rounded-lg mb-4"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x240/6b7280/ffffff?text=Image+Missing'"
+                    >
+                    
                     <h3 class="text-2xl font-semibold text-gray-900 mb-3">Basketball</h3>
-                    <p class="text-gray-600 mb-4">Master shooting form, defensive strategy, and dribbling skills with former collegiate and professional players.</p>
+                    <p class="text-gray-600 mb-4 text-left">Master shooting form, defensive strategy, and dribbling skills with former collegiate and professional players.</p>
                     <a href="#" class="inline-block w-full py-2 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition duration-150">
                         View Tutors
                     </a>
                 </div>
 
                 <!-- Volleyball Card -->
-                <div class="sport-card bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-6xl mb-4" role="img" aria-label="Volleyball Icon">🏐</div>
+                <div class="sport-card bg-white p-4 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    
+                    <!-- IMAGE INSERTION POINT: Replace the src with your actual image URL -->
+                    <img 
+                        src="https://wallpapercave.com/wp/wp2178519.jpg" 
+                        alt="A volleyball player serving the ball" 
+                        class="w-full h-40 object-cover rounded-lg mb-4"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x240/6b7280/ffffff?text=Image+Missing'"
+                    >
+                    
                     <h3 class="text-2xl font-semibold text-gray-900 mb-3">Volleyball</h3>
-                    <p class="text-gray-600 mb-4">Focus on spiking, setting, serving techniques, and synchronized team movements for indoor and beach volleyball.</p>
+                    <p class="text-gray-600 mb-4 text-left">Focus on spiking, setting, serving techniques, and synchronized team movements for indoor and beach volleyball.</p>
                     <a href="#" class="inline-block w-full py-2 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition duration-150">
                         View Tutors
                     </a>
                 </div>
 
                 <!-- Football Card -->
-                <div class="sport-card bg-white p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-                    <div class="text-6xl mb-4" role="img" aria-label="Football Icon">🏈</div>
+                <div class="sport-card bg-white p-4 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    
+                    <!-- IMAGE INSERTION POINT: Replace the src with your actual image URL -->
+                    <img 
+                        src="https://image.slidesdocs.com/responsive-images/background/an-american-football-football-on-a-field-with-a-cloud-over-it-powerpoint-background_fa972d1ebe__960_540.jpg" 
+                        alt="An American football huddle" 
+                        class="w-full h-40 object-cover rounded-lg mb-4"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x240/6b7280/ffffff?text=Image+Missing'"
+                    >
+                    
                     <h3 class="text-2xl font-semibold text-gray-900 mb-3">Football</h3>
-                    <p class="text-gray-600 mb-4">Get position-specific training for quarterbacks, receivers, linemen, and defensive backs to gain a competitive edge.</p>
+                    <p class="text-gray-600 mb-4 text-left">Get position-specific training for quarterbacks, receivers, linemen, and defensive backs to gain a competitive edge.</p>
                     <a href="#" class="inline-block w-full py-2 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition duration-150">
                         View Tutors
                     </a>
