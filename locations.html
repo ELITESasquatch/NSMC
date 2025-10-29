@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Locations - SportConnect</title>
+    <title>Locations & Tutor Search - SportConnect</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- Link to external style.css for custom rules (like font-family) -->
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* This ensures the page structure is set for modern Tailwind use */
+        body {
+            /* flex-direction: column is set in style.css */
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSr9ALHcAkgw8qsdgqV4WmPX5yxWfkxJ4s5lWp66oP_Kph3BZKwaTeNlzNoZcyxFQVJf-nS4MPDCXzM/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+<body class="min-h-screen">
+
     <!-- Header & Navigation -->
     <header class="bg-blue-800 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
@@ -19,6 +27,7 @@
             <nav>
                 <ul class="flex space-x-4">
                     <li><a href="programs.html" class="font-semibold hover:text-blue-200 transition duration-150">Programs</a></li>
+                    <!-- Highlighted Link -->
                     <li><a href="locations.html" class="font-semibold text-orange-300 border-b-2 border-orange-300 pb-1">Locations</a></li>
                     <li><a href="tutors.html" class="font-semibold hover:text-blue-200 transition duration-150">For Tutors</a></li>
                     <li><a href="login.html" class="font-semibold px-4 py-2 bg-orange-500 rounded-full hover:bg-orange-600 transition duration-150">Login</a></li>
@@ -28,52 +37,58 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-12">
-
-        <!-- Banner / Intro Section -->
-        <section class="banner bg-orange-100 p-8 md:p-12 rounded-xl shadow-md text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-orange-700 mb-4">
-                Find Nearby Coaching Spots
-            </h1>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                Enter your location to discover local parks, fields, and facilities where SportConnect tutors are available for sessions.
-            </p>
+    <main class="w-full">
+        
+        <!-- Banner/Intro Section -->
+        <section class="bg-blue-600 text-white text-center p-8 shadow-xl">
+            <h1 class="text-3xl md:text-4xl font-extrabold mb-2">Find Local Tutors and Coaching Spots</h1>
+            <p class="text-lg opacity-90">Enter your location and desired sport to instantly connect with available coaches near you.</p>
         </section>
 
-        <!-- Location Search Form -->
-        <section class="search-form max-w-xl mx-auto bg-white p-6 rounded-xl shadow-lg mb-12">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">
-                Enter Your City or Zip Code
-            </h2>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <input 
-                    type="text" 
-                    id="locationInput"
-                    placeholder="e.g., 90210 or Los Angeles"
-                    class="flex-grow p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-lg"
-                    aria-label="Enter city or zip code"
-                >
-                <button 
-                    id="searchButton"
-                    onclick="handleSearch()"
-                    class="p-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-150 sm:w-auto w-full"
-                >
-                    Search Locations
+        <!-- Search & Filter Controls -->
+        <section class="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-lg mt-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <!-- Sport Dropdown -->
+                <div class="md:col-span-2">
+                    <label for="sport-filter" class="block text-sm font-medium text-gray-700 mb-1">Filter by Sport</label>
+                    <select id="sport-filter" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">All Sports</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
+                        <option value="Football">Football</option>
+                        <!-- Add more sports here as you expand -->
+                    </select>
+                </div>
+
+                <!-- Zip Code Input -->
+                <div>
+                    <label for="zipcode-input" class="block text-sm font-medium text-gray-700 mb-1">Your Zip Code (e.g., 90210)</label>
+                    <input type="text" id="zipcode-input" placeholder="Zip Code" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Search Button -->
+                <button onclick="filterTutors()" class="w-full bg-orange-500 text-white font-bold py-2.5 rounded-lg hover:bg-orange-600 transition duration-300 shadow-md">
+                    Search Tutors
                 </button>
             </div>
         </section>
 
-        <!-- Placeholder Results Section -->
-        <section class="results">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-gray-300 inline-block pb-1">
-                Nearby Parks and Facilities
-            </h2>
+        <!-- Tutor Results Display -->
+        <section class="max-w-4xl mx-auto p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Available Coaches</h2>
+            
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="text-center p-8 hidden">
+                <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500 inline-block"></div>
+                <p class="mt-2 text-gray-600">Loading tutor data...</p>
+            </div>
 
-            <!-- Dynamic Content Area -->
-            <div id="resultsContainer" class="bg-white p-8 rounded-xl shadow-inner min-h-[200px] text-center flex items-center justify-center">
-                <p class="text-gray-500 text-lg">
-                    Enter a location above to see available coaching venues, like public parks, school fields, or private courts.
-                </p>
+            <!-- Results Container (Table or List) -->
+            <div id="tutor-results" class="space-y-4">
+                <!-- Initial message -->
+                <div id="initial-message" class="bg-white p-6 rounded-lg shadow-md text-center text-gray-500">
+                    Enter a location and sport above to find the perfect coach near you.
+                </div>
             </div>
         </section>
 
@@ -86,42 +101,149 @@
         </div>
     </footer>
 
-    <!-- Simple JavaScript to capture input -->
-    <script>
-        function handleSearch() {
-            const inputElement = document.getElementById('locationInput');
-            const resultsContainer = document.getElementById('resultsContainer');
-            const location = inputElement.value.trim();
 
-            if (location) {
-                // In a real application, you would send this 'location' variable
-                // to a server-side API (like Google Maps or a park database) here.
-                
-                // For now, we'll just show the input and a dummy result.
-                resultsContainer.innerHTML = `
-                    <div class="w-full text-left">
-                        <p class="text-xl font-semibold mb-4 text-blue-800">Showing results for: ${location}</p>
-                        <!-- Example Park Listing -->
-                        <div class="mb-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                            <h3 class="font-bold text-lg">Central City Park</h3>
-                            <p class="text-sm text-gray-600">Best for: Basketball, Soccer, Running</p>
-                            <p class="text-sm text-gray-500 mt-1">123 Main St, ${location}</p>
-                        </div>
-                        <div class="mb-4 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                            <h3 class="font-bold text-lg">Community Sports Field</h3>
-                            <p class="text-sm text-gray-600">Best for: Football, Lacrosse</p>
-                            <p class="text-sm text-gray-500 mt-1">456 Oak Ave, ${location}</p>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-4">
-                            (Note: These are placeholder results. Real data integration is required for actual park locations.)
-                        </p>
-                    </div>
-                `;
-            } else {
-                resultsContainer.innerHTML = '<p class="text-red-500 text-lg">Please enter a city or zip code to search.</p>';
+    <script>
+        // Global array to store all tutor data once fetched
+        let allTutors = [];
+        const loadingIndicator = document.getElementById('loading-indicator');
+        const resultsContainer = document.getElementById('tutor-results');
+        const initialMessage = document.getElementById('initial-message');
+
+        /**
+         * Simple CSV to JSON parser.
+         * @param {string} csv - The raw CSV string content.
+         * @returns {Array<Object>} Array of tutor objects.
+         */
+        function parseCSV(csv) {
+            const lines = csv.split('\n').filter(line => line.trim() !== '');
+            if (lines.length === 0) return [];
+
+            // Get headers from the first line
+            const headers = lines[0].split(',').map(header => header.trim());
+            const tutors = [];
+
+            // Iterate over data lines
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].split(',').map(value => value.trim());
+                if (values.length !== headers.length) continue; // Skip malformed lines
+
+                const tutor = {};
+                headers.forEach((header, index) => {
+                    tutor[header] = values[index];
+                });
+                tutors.push(tutor);
+            }
+            return tutors;
+        }
+
+        /**
+         * Fetches the tutor data from the CSV file.
+         */
+        async function loadTutors() {
+            loadingIndicator.classList.remove('hidden');
+            try {
+                // Fetch the CSV file named 'tutor_data.csv'
+                const response = await fetch('tutor_data.csv');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const csvText = await response.text();
+                allTutors = parseCSV(csvText);
+            } catch (error) {
+                console.error("Could not load tutor data:", error);
+                resultsContainer.innerHTML = '<div class="bg-red-100 text-red-700 p-4 rounded-lg">Error loading tutor data. Make sure "tutor_data.csv" is available.</div>';
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                // Automatically display a message if no tutors are loaded
+                if (allTutors.length === 0) {
+                    initialMessage.textContent = 'Tutor data failed to load or the file is empty.';
+                    initialMessage.classList.remove('hidden');
+                }
             }
         }
-    </script>
 
+        /**
+         * Filters the global tutor list based on user input (Sport and Zip Code).
+         */
+        function filterTutors() {
+            const sport = document.getElementById('sport-filter').value.toLowerCase().trim();
+            const zipcode = document.getElementById('zipcode-input').value.trim();
+            
+            // Clear previous results and hide initial message
+            resultsContainer.innerHTML = '';
+            initialMessage.classList.add('hidden');
+
+            if (allTutors.length === 0) {
+                resultsContainer.innerHTML = '<div class="bg-yellow-100 text-yellow-700 p-4 rounded-lg">Tutor data is unavailable.</div>';
+                return;
+            }
+
+            const filteredTutors = allTutors.filter(tutor => {
+                let matchesSport = true;
+                let matchesZip = true;
+
+                // 1. Filter by Sport Expertise
+                if (sport) {
+                    // Normalize the expertise string (split by semicolon, trim spaces)
+                    const expertise = tutor['Sports with expertise'] ? tutor['Sports with expertise'].toLowerCase() : '';
+                    const expertSports = expertise.split(';').map(s => s.trim());
+                    // Check if the selected sport is in the tutor's expertise list
+                    matchesSport = expertSports.includes(sport);
+                }
+
+                // 2. Filter by Zip Code 
+                if (zipcode) {
+                    // Checks if the tutor's zip code starts with the entered input
+                    matchesZip = tutor['Zip code'] && tutor['Zip code'].startsWith(zipcode);
+                }
+
+                return matchesSport && matchesZip;
+            });
+
+            renderResults(filteredTutors);
+        }
+
+        /**
+         * Renders the filtered tutor results into the container.
+         * @param {Array<Object>} tutors - The list of tutors to display.
+         */
+        function renderResults(tutors) {
+            if (tutors.length === 0) {
+                resultsContainer.innerHTML = '<div class="bg-white p-6 rounded-lg shadow-md text-center text-gray-500">No tutors found matching your criteria. Try broadening your search!</div>';
+                return;
+            }
+
+            // Generate HTML for each tutor card
+            const html = tutors.map(tutor => `
+                <div class="bg-white p-6 rounded-xl shadow-lg border-l-4 border-blue-500 transition hover:shadow-xl">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900">${tutor['Name']}</h3>
+                        <span class="text-sm font-semibold text-blue-600 bg-blue-100 px-3 py-1 rounded-full">${tutor['Zip code']}</span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <p class="text-sm font-semibold text-gray-600 mb-1">Expertise:</p>
+                        <p class="text-base text-gray-800">${tutor['Sports with expertise']}</p>
+                    </div>
+
+                    <div class="border-t pt-3">
+                        <p class="text-sm font-semibold text-gray-600 mb-1">Availability:</p>
+                        <!-- Replaces semicolon with a separator pipe for clean display -->
+                        <p class="text-base text-gray-800">${tutor['Time availability'].replace(/;/g, ' | ')}</p>
+                    </div>
+                    
+                    <button class="mt-4 w-full bg-green-500 text-white font-bold py-2 rounded-lg hover:bg-green-600 transition duration-300">
+                        Book Session
+                    </button>
+                </div>
+            `).join('');
+
+            resultsContainer.innerHTML = html;
+        }
+
+        // Load data when the page finishes loading
+        window.onload = loadTutors;
+
+    </script>
 </body>
 </html>
