@@ -3,40 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports Tutoring & Coaching - Home</title>
+    <title>SportConnect - Your Path to Athletic Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom style for the hero banner, similar to tutors.html */
+        .hero-banner {
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-100 flex flex-col min-h-screen">
 
-    <header>
-        <div class="logo">
-            <a href="index.html">SportConnect</a>
+    <header class="bg-blue-800 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="logo text-2xl font-bold tracking-tight">
+                <a href="index.html">SportConnect</a>
+            </div>
+            <nav>
+                <ul class="flex space-x-4 items-center">
+                    <li><a href="index.html" class="font-semibold text-orange-300 border-b-2 border-orange-300 pb-1">Home</a></li>
+                    <li><a href="find-a-tutor.html" class="font-semibold hover:text-blue-200 transition">Find a Tutor</a></li>
+                    <li><a href="tutors.html" class="font-semibold hover:text-blue-200 transition">For Tutors</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="programs.html">Programs</a></li>
-                <li><a href="locations.html">Locations</a></li>
-                <li><a href="tutors.html">For Tutors</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Find Your Perfect Sports Tutor Today!</h1>
-            <p>Connect with expert coaches for one-on-one training in any sport. Improve your skills, find your passion, and achieve your athletic goals.</p>
-            <a href="programs.html" class="cta-button">Explore Programs</a>
+    <main class="flex-grow">
+        <section
+            class="hero-banner py-20 md:py-28 flex items-center justify-center text-center"
+            style="background-image: url('https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');">
+            <div class="bg-black bg-opacity-50 p-8 rounded-xl max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+                    Elevate Your Game
+                </h1>
+                <p class="text-lg md:text-xl text-white font-medium">
+                    The premier platform connecting dedicated athletes with expert coaches for personalized, one-on-one training.
+                </p>
+            </div>
         </section>
 
-        <section class="content">
-            <h2>Elevate Your Game</h2>
-            <p>Whether you're a beginner or an elite athlete, our platform makes it easy to find certified, local, and top-rated sports coaches.</p>
+        <section class="bg-white py-16 px-4">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+
+                <div class="flex flex-col items-center p-8 bg-gray-50 rounded-xl shadow-lg transition hover:shadow-2xl hover:-translate-y-1">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25348.png" alt="Rising Arrow Icon" class="w-32 h-32 object-contain mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">For Athletes</h2>
+                    <p class="text-gray-600 text-center mb-6 flex-grow">Ready to unlock your full potential? Browse our network of certified coaches and book your first session today.</p>
+                    <a href="find-a-tutor.html" class="w-full text-center bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition duration-300 shadow-md">
+                        Find a Tutor
+                    </a>
+                </div>
+
+                <div class="flex flex-col items-center p-8 bg-gray-50 rounded-xl shadow-lg transition hover:shadow-2xl hover:-translate-y-1">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3138/3138356.png" alt="Compass Icon" class="w-32 h-32 object-contain mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">For Tutors</h2>
+                    <p class="text-gray-600 text-center mb-6 flex-grow">Are you an expert in your sport? Join our platform to connect with local athletes and grow your coaching business.</p>
+                    <a href="tutors.html" class="w-full text-center bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-md">
+                        Become a Tutor
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 SportConnect | All Rights Reserved</p>
+    <footer class="bg-gray-800 text-white py-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 SportConnect | All Rights Reserved</p>
+        </div>
     </footer>
 
 </body>
