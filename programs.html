@@ -134,8 +134,23 @@
             <p>&copy; 2025 SportConnect | Connecting Athletes & Tutors</p>
         </div>
     </footer>
-<div id="message-box" class="fixed right-4 bottom-4 p-4 rounded-lg shadow-xl bg-yellow-400 text-yellow-900 font-semibold transition-opacity duration-300 hidden z-50">
-    This functionality coming soon!
-</div>
+<script>
+    // ... other scripts ...
+
+    /**
+     * Shows a temporary "Coming Soon" message notification.
+     */
+    function comingSoon() {
+        const messageBox = document.getElementById('message-box');
+        
+        // 1. Show the message box
+        messageBox.classList.remove('hidden');
+
+        // 2. Hide the message box after 3 seconds
+        setTimeout(() => {
+            messageBox.classList.add('hidden');
+        }, 3000); 
+    }
+</script>
 </body>
 </html>
